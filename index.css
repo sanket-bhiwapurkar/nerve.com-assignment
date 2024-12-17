@@ -32,12 +32,14 @@ p {
 .view-tab-list {
   list-style-type: none;
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   padding: 0;
   margin: 0;
 }
 .view-tab-list li {
-  width: 100%;
+  max-width: 100%;
 }
 .view-tab-item {
   display: flex;
@@ -47,13 +49,14 @@ p {
   border-radius: 0.75rem;
   color: var(--secondary);
   text-decoration: none;
+  cursor: pointer;
 }
 .view-tab-item.active {
   background: var(--primary);
   color: var(--white);
   font-weight: 500;
 }
-.selected {
+.select .selected {
   width: 100%;
   background: var(--white);
   border: 1px solid var(--light);
@@ -66,20 +69,28 @@ p {
   position: relative;
   font-weight: 500;
 }
-.selected::after {
-  content: ">";
+.select .selected::after {
+  content: "<";
   font-size: 1.5rem;
   position: absolute;
   right: 1rem;
   color: var(--primary);
-  transform: rotate(90deg);
+  transform: rotate(270deg);
+  transition: all;
+  transition-duration: 300ms;
 }
-.option-list {
+.select .selected.expanded::after {
+  transform: rotate(90deg);
+  transition: all;
+  transition-duration: 300ms;
+}
+.select .option-list {
   list-style-type: none;
   padding: 0rem 1rem;
   margin: 0;
+  display: none;
 }
-.option {
+.select .option-list .option {
   padding: 0.25rem 1rem;
   margin-bottom: 0.75rem;
   border: 1px solid var(--light);
@@ -87,7 +98,7 @@ p {
   background: var(--white);
   font-weight: 500;
 }
-.option:hover {
+.select .option-list .option:hover {
   background: var(--light);
 }
 .strategy-list {
@@ -102,6 +113,7 @@ p {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  margin-bottom: 1rem;
 }
 .strategy-card .name {
   font-weight: 500;
@@ -114,28 +126,26 @@ p {
   display: flex;
   align-items: center;
 }
-
-.strategy-card .count span {
-  margin-right: 0.5rem;
-}
-
 .strategy-card .count::before {
   content: "•";
   position: absolute;
   left: -1rem;
   font-size: 1.5rem;
 }
-
 .empty-view {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   text-align: center;
   margin: 8rem 0rem;
+  display: none;
 }
 .empty-view .msg {
   font-size: 0.875rem;
 }
 .empty-view .date {
   font-weight: 500;
+}
+.show {
+  display: block !important;
 }
