@@ -102,6 +102,8 @@ function createStrategyCard(strategy) {
 function renderNoView(show) {
   const emptyView = document.querySelector(".empty-view");
   show ? emptyView.classList.add("show") : emptyView.classList.remove("show");
+  const emptyViewDate = document.querySelector(".empty-view .date");
+  emptyViewDate.textContent = state.activeDate;
 }
 
 function getViews(strategyArray) {
