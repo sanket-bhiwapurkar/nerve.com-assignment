@@ -68,6 +68,7 @@ p {
   align-items: center;
   position: relative;
   font-weight: 500;
+  cursor: pointer;
 }
 .select .selected::after {
   content: "<";
@@ -97,6 +98,7 @@ p {
   border-radius: 0.75rem;
   background: var(--white);
   font-weight: 500;
+  cursor: pointer;
 }
 .select .option-list .option:hover {
   background: var(--light);
